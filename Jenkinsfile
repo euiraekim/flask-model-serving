@@ -3,7 +3,7 @@ pipeline {
     environment {
         GIT_URL = 'https://github.com/euiraekim/flask-model-serving.git'
         GIT_CRED_ID = '569c9736-376a-4703-aa98-1aed5c2770e1'
-        GIT_BRANCH = 'master'
+        GIT_BRANCH = 'main'
 
         DOCKER_HUB_REPO = "talha1995/test"
         CONTAINER_NAME = "flask-container"
