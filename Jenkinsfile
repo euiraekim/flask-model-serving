@@ -48,13 +48,13 @@ pipeline {
             steps {
                 echo 'Deploy start'
                 script{
-                    if (BUILD_NUMBER == "28") {
-                        sh 'docker run --name $CONTAINER_NAME -d -p 5000:5000 $DOCKER_HUB_REPO'
+                    if (BUILD_NUMBER == "29") {
+                        sh 'docker run --name $CONTAINER_NAME -d -p 5000:5000 $DOCKERHUB_REPO'
                     }
                     else {
                         sh 'docker stop $CONTAINER_NAME'
                         sh 'docker rm $CONTAINER_NAME'
-                        sh 'docker run --name $CONTAINER_NAME -d -p 5000:5000 $DOCKER_HUB_REPO'
+                        sh 'docker run --name $CONTAINER_NAME -d -p 5000:5000 $DOCKERHUB_REPO'
                     }
                 }
                 echo 'Deploy end'
