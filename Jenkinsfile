@@ -14,7 +14,7 @@ pipeline {
         stage('Clone') {
             steps {
                 echo 'Clone start'
-                git branch: GIT_BRANCH, credentialsId: GIT_CRED_ID, url: GIT_URL
+                git branch: GITHUB_BRANCH, credentialsId: GITHUB_CRED_ID, url: GITHUB_URL
                 sh 'ls'
                 echo 'Clone end!'
             }
