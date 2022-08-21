@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Push start'
                 echo 'echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin'
-                sh 'echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin'
+                // sh 'echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin'
                 sh 'docker push $DOCKERHUB_REPO:$BUILD_NUMBER'
                 sh 'docker push $DOCKERHUB_REPO:latest'
                 echo 'Push end!!'
