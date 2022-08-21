@@ -7,7 +7,7 @@ pipeline {
 
         DOCKERHUB_REPO = "harrykur139/flask-ml-server"
         DOCKERHUB_CRED_ID = "d174b66f-c2eb-44b8-83c9-481726b28bb6"
-        DOCKERHUB_CRED = credentials(DOCKERHUB_CRED_ID)
+        DOCKERHUB_CRED = credentials("d174b66f-c2eb-44b8-83c9-481726b28bb6")
         CONTAINER_NAME = "flask-ml-container"
     }
     stages {
