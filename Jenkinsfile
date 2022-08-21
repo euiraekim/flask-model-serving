@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test start'
-                sh 'docker build Dockerfile.test . -t test-image'
+                sh 'docker build -f Dockerfile.test -t test-image .'
                 sh 'docker run test-image'
                 echo 'Test end!'
             }
