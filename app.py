@@ -25,7 +25,7 @@ def predict():
     pred = model.predict(x)[0]
 
     return {
-        'status': 200,
+        'status': 2000,
         'class': CLASSES[pred]
     }
 
