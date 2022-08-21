@@ -23,7 +23,7 @@ pipeline {
                 echo 'Test start'
                 sh 'docker build -f Dockerfile.test -t test-image .'
                 sh 'docker run test-image'
-                echo 'Test end!'
+                echo 'Test end!!'
             }
          }
     }
