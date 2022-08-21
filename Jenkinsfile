@@ -16,7 +16,7 @@ pipeline {
                 echo 'Clone start'
                 git branch: GITHUB_BRANCH, credentialsId: GITHUB_CRED_ID, url: GITHUB_URL
                 sh 'ls'
-                echo 'Clone end!'
+                echo 'Clone end'
             }
         }
         stage('Test') {
@@ -24,7 +24,7 @@ pipeline {
                 echo 'Test start'
                 sh 'docker build -f Dockerfile.test -t test-image .'
                 sh 'docker run test-image'
-                echo 'Test end!!'
+                echo 'Test end'
             }
         }
         stage('Build') {
@@ -38,11 +38,26 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Push start'
-                // sda?f
                 sh 'echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin'
                 sh 'docker push $DOCKERHUB_REPO:$BUILD_NUMBER'
                 sh 'docker push $DOCKERHUB_REPO:latest'
-                echo 'Push end!!'
+                echo 'Push end'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy start'
+                script{
+                    if (BUILD_NUMBER == "1") {
+                        sh 'docker run --name $CONTAINER_NAME -d -p 5000:5000 $DOCKER_HUB_REPO'
+                    }
+                    else {
+                        sh 'docker stop $CONTAINER_NAME'
+                        sh 'docker rm $CONTAINER_NAME'
+                        sh 'docker run --name $CONTAINER_NAME -d -p 5000:5000 $DOCKER_HUB_REPO'
+                    }
+                }
+                echo 'Deploy end'
             }
         }
     }
