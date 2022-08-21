@@ -15,7 +15,7 @@ pipeline {
                 echo 'Clone start'
                 git branch: GIT_BRANCH, credentialsId: GIT_CRED_ID, url: GIT_URL
                 sh 'ls'
-                echo 'Clone end'
+                echo 'Clone end!'
             }
          }
     }
