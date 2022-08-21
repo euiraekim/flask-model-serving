@@ -28,8 +28,8 @@ class TestFlask(unittest.TestCase):
         )
 
         data = json.loads(rv.data)
-        self.assertEqual(rv.status, '200 OK')
+        self.assertEqual(rv.status, '200')
         self.assertIn(data['class'], CLASSES)
-        
+
 if __name__ == '__main__':
     unittest.main()
