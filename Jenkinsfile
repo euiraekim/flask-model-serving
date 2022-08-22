@@ -48,7 +48,7 @@ pipeline {
             steps {
                 echo 'Deploy start'
                 script{
-                    if (BUILD_NUMBER == "29") {
+                    if (BUILD_NUMBER == "1") {
                         sh 'docker run --name $CONTAINER_NAME -d -p 5000:5000 $DOCKERHUB_REPO'
                     }
                     else {
