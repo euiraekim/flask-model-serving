@@ -2,13 +2,12 @@ pipeline {
     agent any
     environment {
         GITHUB_URL = 'https://github.com/euiraekim/flask-model-serving.git'
-        GITHUB_CRED_ID = '569c9736-376a-4703-aa98-1aed5c2770e1'
+        GITHUB_CRED_ID = 'github-token'
         GITHUB_BRANCH = 'main'
 
-        DOCKERHUB_REPO = "harrykur139/flask-ml-server"
-        DOCKERHUB_CRED_ID = "d174b66f-c2eb-44b8-83c9-481726b28bb6"
-        DOCKERHUB_CRED = credentials("d174b66f-c2eb-44b8-83c9-481726b28bb6")
-        CONTAINER_NAME = "flask-ml-container"
+        DOCKERHUB_REPO = 'harrykur139/flask-ml-server'
+        DOCKERHUB_CRED = credentials('dockerhub-token')
+        CONTAINER_NAME = 'flask-ml-container'
     }
     stages {
         stage('Clone') {
